@@ -14,10 +14,10 @@ import { webProjects } from "./data/webProjects";
 export default function Home() {
   // set starting position of the canvas to center in a way that also works on mobile
   const [translateX, setTranslateX] = useState<number>(
-    (window.innerWidth / 2) * -1
+    (window?.innerWidth / 2) * -1
   );
   const [translateY, setTranslateY] = useState<number>(
-    (window.innerHeight / 2) * -1
+    (window?.innerHeight / 2) * -1
   );
   const [isDragging, setIsDragging] = useState(false);
   const { setBgColour, setNavbarMode } = useContext(NavbarContext);
@@ -39,11 +39,11 @@ export default function Home() {
     if (translateY > 0) {
       setTranslateY(0);
     }
-    if (translateX < window.innerWidth * -1) {
-      setTranslateX(window.innerWidth * -1);
+    if (translateX < window?.innerWidth * -1) {
+      setTranslateX(window?.innerWidth * -1);
     }
-    if (translateY < window.innerHeight * -1) {
-      setTranslateY(window.innerHeight * -1);
+    if (translateY < window?.innerHeight * -1) {
+      setTranslateY(window?.innerHeight * -1);
     }
   };
 
@@ -94,11 +94,11 @@ export default function Home() {
             if (translateY > 0) {
               setTranslateY(0);
             }
-            if (translateX < window.innerWidth * -1) {
-              setTranslateX(window.innerWidth * -1);
+            if (translateX < window?.innerWidth * -1) {
+              setTranslateX(window?.innerWidth * -1);
             }
-            if (translateY < window.innerHeight * -1) {
-              setTranslateY(window.innerHeight * -1);
+            if (translateY < window?.innerHeight * -1) {
+              setTranslateY(window?.innerHeight * -1);
             }
 
             previousTouch = touch;
