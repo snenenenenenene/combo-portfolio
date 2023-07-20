@@ -3,13 +3,15 @@
 export default function CornerButton({
   href,
   name,
+  className,
 }: {
   href: string;
   name: string;
+  className?: string;
 }) {
   return (
     <button
-      className="flex overflow-hidden group relative w-40 justify-center items-center bg-light-secondary"
+      className={`${className} flex overflow-hidden group  relative xl:w-40 justify-center items-center bg-light-secondary`}
       corner-cut="bottom-right"
     >
       <img

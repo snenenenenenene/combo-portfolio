@@ -53,7 +53,7 @@ export default function Navbar() {
         border-cut="nav-bar"
         className={` p-[2px] h-16 z-50 flex overflow-hidden justify-between px-10 transition-all duration-200 ${
           clickedMenu
-            ? "top-4 right-4 absolute w-[48.2%] bg-light-secondary"
+            ? "top-4 right-4 absolute xl:visible hidden w-[48.2%] bg-light-secondary"
             : navbarMode === "flush"
             ? `w-full top-0 left-0  ${bgColour} ${
                 bgColour === "bg-light-tertiary"
@@ -81,13 +81,13 @@ export default function Navbar() {
       </nav>
       {/* create a cutout rectangle that is transparent */}
       {clickedMenu && (
-        <div className="w-screen flex h-screen z-40  fixed">
-          <div className="w-1/2 text-light-secondary flex-col flex bg-light-secondary h-full absolute left-0 top-4">
+        <div className="w-screen flex h-screen z-40 fixed">
+          <div className="xl:w-1/2 w-full text-light-secondary flex-col flex bg-light-secondary h-full absolute left-0 xl:top-4">
             <section
               border-cut="top-right"
-              className="bg-light-secondary left-1/2 -translate-x-[49.1%] flex w-[95%] h-5/6 absolute"
+              className="bg-light-secondary left-1/2 -translate-x-[49.1%] top-10 xl:top-0 flex w-[95%] xl:h-5/6 h-full absolute"
             >
-              <ul className="uppercase p-10 gap-y-8 flex flex-col pointer-events-auto text-7xl text-light-primary font-bold">
+              <ul className="uppercase xl:p-10 p-4 xl:gap-y-8 ga-y-4 flex flex-col pointer-events-auto xl:text-7xl text-4xl text-light-primary font-bold">
                 {links.map((link, i) => (
                   <li
                     key={link.name}
@@ -119,14 +119,14 @@ export default function Navbar() {
             ></section>
           </div>
           <div
-            className="w-1/2 text-light-secondary h-full absolute right-0 top-0 bg-light-secondary"
+            className="xl:w-1/2 text-light-secondary h-full absolute right-0 top-0 bg-light-secondary"
             style={{
               clipPath:
                 "polygon(0% 0%, 0% 100%, 1% 100%, 1% 1%, 99% 1%, 99% 99%, 1% 99%,1% 100%, 100% 100%, 100% 0%)",
             }}
           ></div>
           <section
-            className="w-[49.1%] right-2 h-[98.4%] cursor-pointer mt-[8px] fixed bg-[#00000090] z-10 "
+            className="xl:w-[49.1%] right-2 h-[98.4%] cursor-pointer mt-[8px] fixed bg-[#00000090] z-10 "
             border-cut="bottom-left"
             onClick={() => setClickedMenu(!clickedMenu)}
           ></section>
