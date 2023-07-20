@@ -14,10 +14,10 @@ import { webProjects } from "./data/webProjects";
 export default function Home() {
   // set starting position of the canvas to center in a way that also works on mobile
   const [translateX, setTranslateX] = useState<number>(
-    (window?.innerWidth / 2) * -1
+    typeof window !== "undefined" ? (window?.innerWidth / 2) * -1 : 0
   );
   const [translateY, setTranslateY] = useState<number>(
-    (window?.innerHeight / 2) * -1
+    typeof window !== "undefined" ? (window?.innerHeight / 2) * -1 : 0
   );
   const [isDragging, setIsDragging] = useState(false);
   const { setBgColour, setNavbarMode } = useContext(NavbarContext);
