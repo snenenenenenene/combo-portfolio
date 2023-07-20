@@ -9,6 +9,7 @@ import CornerButton from "./components/CornerButton";
 import { Marquee } from "./components/Marquee";
 import { Model } from "./components/Model";
 import { NavbarContext } from "./components/Navbar";
+import Preloader from "./components/Preloader";
 import { webProjects } from "./data/webProjects";
 
 export default function Home() {
@@ -62,6 +63,7 @@ export default function Home() {
         style={{ fontSize: "1vw" }}
         id="archive"
       >
+        <Preloader />
         <div
           onMouseMove={handleMouseMove}
           onMouseDown={() => {
@@ -103,7 +105,7 @@ export default function Home() {
 
             previousTouch = touch;
           }}
-          className="cursor-grabbing bg-light-secondary -z-10 w-[300em] h-[300em] xl:w-[200em] xl:h-[200em] absolute overflow-hidden"
+          className="cursor-grabbing bg-light-secondary transition-all duration-200 -z-10 w-[300em] h-[300em] xl:w-[200em] xl:h-[200em] absolute overflow-hidden"
           style={{
             transform: `translateX(${translateX}px) translateY(${translateY}px)`,
             zIndex: 1,
@@ -174,7 +176,7 @@ export default function Home() {
           <p className="ml-auto">WEB DEV</p>
           <p className="mr-auto">GAME ART</p>
           <p className="ml-auto">3D</p>
-          <span className="flex justify-center items-center flex-col">
+          <span className="flex justify-center items-center flex-col xl:flex-row">
             <span className="flex">
               <p className="text-light-tertiary">〔</p>SPECIALISED
               <p className="text-light-tertiary">〕</p>
@@ -284,7 +286,7 @@ export default function Home() {
             <p>Designed by Senne Bels</p>
             <p>Developed by Senne Bels</p>
           </div>
-          <div className="flex xl:flex-row flex-col w-full mt-auto xl:gap-x-10 gap-y-2 ">
+          <div className="flex xl:flex-row flex-col xl:justify-center w-full mt-auto xl:gap-x-10 gap-y-2 ">
             <CornerButton
               className="h-12 xl:h-10"
               href="https://github.com/snenenenenenene"
