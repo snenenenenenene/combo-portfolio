@@ -2,26 +2,362 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+::-webkit-scrollbar {
+  width: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "PPRader Regular";
+  src: url("/assets/fonts/PPRader-Regular.woff2");
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: "PPRader Bold";
+  src: url("/assets/fonts/PPRader-Bold.woff2");
+}
+
+@font-face {
+  font-family: "PPRader Thin";
+  src: url("/assets/fonts/PPRader-Thin.woff2");
+}
+
+@font-face {
+  font-family: "PPRader Italic";
+  src: url("/assets/fonts/PPRader-Italic.otf");
+}
+
+@font-face {
+  font-family: "PPRader Medium";
+  src: url("/assets/fonts/PPRader-Medium.otf");
+}
+
+[border-cut="nav-window"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 0.8em) 0,
+    100% 0.8em,
+    100% 100%,
+    0.8em 100%,
+    0 calc(100% - 0.8em),
+    0 0,
+    2px 2px,
+    2px calc(100% - 0.8em - 0.83px),
+    calc(0.8em + 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) calc(0.8em + 0.83px),
+    calc(100% - 0.8em - 0.83px) 2px,
+    2px 2px
+  );
+}
+
+[border-cut="top-right"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 0.8em) 0,
+    100% 0.8em,
+    100% 100%,
+    0 100%,
+    0 0,
+    2px 2px,
+    2px calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) calc(0.8em + 0.83px),
+    calc(100% - 0.8em - 0.83px) 2px,
+    2px 2px
+  );
+}
+
+[border-cut="nav-bar"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 0.8em),
+    calc(100% - 0.8em) 100%,
+    0 100%,
+    0 0,
+    2px 2px,
+    2px calc(100% - 2px),
+    calc(100% - 0.8em - 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 0.8em - 0.83px),
+    calc(100% - 2px) 2px,
+    2px 2px
+  );
+  transition: background 300 ease;
+}
+
+[border-cut="top-right-black"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 6, 0.2);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 2em) 0,
+    100% 2em,
+    100% 100%,
+    0 100%,
+    0 0,
+    2px 2px,
+    2px calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) calc(2em + 0.83px),
+    calc(100% - 2em - 0.83px) 2px,
+    2px 2px
+  );
+}
+
+[border-cut="bottom-right-black"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 6, 0.2);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 2em),
+    calc(100% - 2em) 100%,
+    0 100%,
+    0 0,
+    2px 2px,
+    2px calc(100% - 2px),
+    calc(100% - 2em - 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2em - 0.83px),
+    calc(100% - 2px) 2px,
+    2px 2px
+  );
+}
+
+.font-outline-2 {
+  -webkit-text-stroke: 2px #fff;
+}
+
+[border-cut="bottom-left"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0.8em 100%,
+    0 calc(100% - 0.8em),
+    0 0,
+    2px 2px,
+    2px calc(100% - 0.8em - 0.83px),
+    calc(0.8em + 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) 2px,
+    2px 2px
+  );
+}
+
+h2 {
+  font-size: clamp(1em, 8.5vw, 9.1em);
+  /* letter-spacing: -0.15em; */
+  line-height: 0.8;
+}
+
+[border-cut="bottom-right"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0.8em 100%,
+    0 calc(100% - 0.8em),
+    0 0,
+    2px 2px,
+    2px calc(100% - 0.8em - 0.83px),
+    calc(0.8em + 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) 2px,
+    2px 2px
+  );
+}
+
+[border-cut="bottom-left-black"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 6, 0.2);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    2em 100%,
+    0 calc(100% - 2em),
+    0 0,
+    2px 2px,
+    2px calc(100% - 2em - 0.83px),
+    calc(2em + 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) 2px,
+    2px 2px
+  );
+}
+
+[client-border]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 7, 6, 0.2);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 0em),
+    calc(100% - 0em) 100%,
+    0 100%,
+    0 0,
+    2px 2px,
+    2px calc(100% - 2px),
+    calc(100% - 0em - 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 0em - 0.83px),
+    calc(100% - 2px) 2px,
+    2px 2px
+  );
+}
+
+[corner-cut="top-right"] {
+  clip-path: polygon(0 0, calc(100% - 0.8em) 0, 100% 0.8em, 100% 100%, 0 100%);
+}
+
+[corner-cut="bottom-right"] {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 0.8em),
+    calc(100% - 0.8em) 100%,
+    0 100%
+  );
+}
+
+[corner-cut="top"] {
+  clip-path: polygon(
+    0 2em,
+    2em 0,
+    calc(100% - 2em) 0,
+    100% 2em,
+    100% 100%,
+    0 100%
+  );
+}
+
+[corner-cut="all"] {
+  clip-path: polygon(
+    0 2em,
+    2em 0,
+    calc(100% - 2em) 0,
+    100% 2em,
+    100% calc(100% - 2em),
+    calc(100% - 2em) 100%,
+    2em 100%,
+    0 calc(100% - 2em)
+  );
+}
+
+[corner-cut="project-slide"] {
+  clip-path: polygon(
+    0 0,
+    calc(100% - 2em) 0,
+    100% 2em,
+    100% 100%,
+    2em 100%,
+    0 calc(100% - 2em)
+  );
+}
+
+[corner-cut="cursor"] {
+  clip-path: polygon(
+    0 0.8em,
+    0.8em 0,
+    100% 0,
+    100% calc(100% - 0.8em),
+    calc(100% - 0.8em) 100%,
+    0 100%
+  );
+}
+
+[border-cut="project-line"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 2em) 0,
+    100% 2em,
+    100% 100%,
+    2em 100%,
+    0 calc(100% - 2em),
+    0 0,
+    2px 2px,
+    2px calc(100% - 2em - 0.83px),
+    calc(2em + 0.83px) calc(100% - 2px),
+    calc(100% - 2px) calc(100% - 2px),
+    calc(100% - 2px) calc(2em + 0.83px),
+    calc(100% - 2em - 0.83px) 2px,
+    2px 2px
+  );
+}
+
+[border-cut="footer-cta"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 1em,
+    1em 0,
+    100% 0,
+    100% calc(100% - 1em),
+    calc(100% - 1em) 100%,
+    0 100%,
+    0 1em,
+    1px calc(1em + 0.41px),
+    1px calc(100% - 1px),
+    calc(100% - 1em - 0.41px) calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 1em - 0.41px),
+    calc(100% - 1px) 1px,
+    calc(1em + 0.41px) 1px,
+    1px calc(1em + 0.41px)
+  );
+}
+
+[border-cut="footer-btm"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 1em) 0,
+    100% 1em,
+    100% 100%,
+    1em 100%,
+    0 calc(100% - 1em),
+    0 0,
+    1px 1px,
+    1px calc(100% - 1em - 0.41px),
+    calc(1em + 0.41px) calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 1px),
+    calc(100% - 1px) calc(1em + 0.41px),
+    calc(100% - 1em - 0.41px) 1px,
+    1px 1px
+  );
 }
