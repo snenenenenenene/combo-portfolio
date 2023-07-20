@@ -41,80 +41,26 @@ export const Model = (props: any) => {
   const [
     ramenShopTexture,
     machinesTexture,
-    bigScreenTexture,
-    // floorTexture,
     miscTexture,
     easelTouchTexture,
     graphicsTexture,
     dishMatcapTexture,
     fanMatcapTexture,
-    neonBlueMatcapTexture,
-    neonGreenMatcapTexture,
     arcadeScreenTexture,
-    vendingMachineDefaultTexture,
-    // ABOUT ME SCREENS
-
     bigScreenAboutMeTexture,
-    bigScreenSkillsTexture,
-    bigScreenExperienceTexture,
-    bigScreenAboutMeMobileTexture,
-
-    // PROJECTS
-
-    vendingMachineMenuTexture,
-    project1Texture,
-    project2Texture,
-    project3Texture,
-    project4Texture,
-    project5Texture,
-    project6Texture,
-    project7Texture,
-    project8Texture,
-
-    // SIDE SCREEN
-
-    sideScreen1Texture,
-    sideScreen2Texture,
-    sideScreen3Texture,
   ] = useKTX2([
     "assets/static/textures/baked/ramenShopBaked1024.ktx2",
     "assets/static/textures/baked/machinesBaked1024.ktx2",
-    "assets/static/textures/screens/aboutMeScreens/bigScreenDefault.ktx2",
-    // "assets/static/textures/baked/vloer.ktx2",
+
     "assets/static/textures/baked/miscBaked1024.ktx2",
     "assets/static/textures/screens/easel/easelTouch.ktx2",
     "assets/static/textures/baked/graphicsBaked512.ktx2",
     "assets/static/textures/matcaps/dishMatCap.ktx2",
     "assets/static/textures/matcaps/fanMatCap.ktx2",
-    "assets/static/textures/matcaps/neonBlueMatCap.ktx2",
-    "assets/static/textures/matcaps/neonGreenMatCap.ktx2",
+
     "assets/static/textures/screens/arcadeScreens/arcadeScreenDefault.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/vendingMachineDefault.ktx2",
 
-    // ABOUT ME SCREENS
     "assets/static/textures/screens/aboutMeScreens/aboutMe.ktx2",
-    "assets/static/textures/screens/aboutMeScreens/bigScreenSkills.ktx2",
-    "assets/static/textures/screens/aboutMeScreens/bigScreenExperience.ktx2",
-    "assets/static/textures/screens/aboutMeScreens/bigScreenAboutMobile.ktx2",
-    "assets/static/textures/screens/aboutMeScreens/bigScreenSkillsMobile.ktx2",
-
-    // PROJECTS
-
-    "assets/static/textures/screens/vendingMachineScreens/vendingMachineMenu.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project1.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project2.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project3.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project4.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project5.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project6.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project7.ktx2",
-    "assets/static/textures/screens/vendingMachineScreens/project8.ktx2",
-
-    // SIDE SCREEN
-
-    "assets/static/textures/screens/sideScreens/sideScreen1.ktx2",
-    "assets/static/textures/screens/sideScreens/sideScreen2.ktx2",
-    "assets/static/textures/screens/sideScreens/sideScreen3.ktx2",
   ]);
 
   const ramenShopMaterial = new MeshBasicMaterial({
@@ -151,15 +97,6 @@ export const Model = (props: any) => {
 
   const fanMatcapMaterial = new MeshMatcapMaterial({
     matcap: fanMatcapTexture,
-  });
-
-  const lightMatcapTexture = useLoader(
-    TextureLoader,
-    "assets/static/textures/matcaps/lightMatCap.png"
-  );
-
-  const lightMatcapMaterial = new MeshMatcapMaterial({
-    matcap: lightMatcapTexture,
   });
 
   const bigScreenAboutMeMaterial = new MeshBasicMaterial({
