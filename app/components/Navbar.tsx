@@ -44,7 +44,7 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [clickedMenu, setClickedMenu] = useState(true);
+  const [clickedMenu, setClickedMenu] = useState(false);
   const { bgColour, navbarMode } = useContext(NavbarContext);
 
   return (
