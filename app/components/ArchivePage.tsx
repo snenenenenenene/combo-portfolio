@@ -155,13 +155,13 @@ export default function ArchivePage() {
 
             previousTouch = touch;
           }}
-          className="cursor-grabbing select-none -z-10 w-[300em] h-[300em] xl:w-[300em] xl:h-[200em] absolute overflow-hidden"
+          className="cursor-grabbing bg-light-secondary2 select-none -z-10 w-[300em] h-[300em] xl:w-[300em] xl:h-[200em] absolute overflow-hidden"
           style={{
             transform: `translate(${translateX}px, ${translateY}px)`,
             // backgroundImage: `url(/assets/logo.svg)`,
             // backgroundImage: `url(/dots2.avif)`,
             // backgroundSize: "200vh, 200vh",
-            filter: "invert(1)",
+            // filter: "invert(1)",
             backgroundAttachment: "fixed",
 
             backgroundPosition: "center",
@@ -176,7 +176,7 @@ export default function ArchivePage() {
               href={!isDragging && project.demo ? project.demo : project.link}
               key={project.id}
               draggable={false}
-              className={`xl:w-[40vh] filter invert xl:h-[30vh] h-40 w-40 hover:scale-105 transition-all cursor-pointer duration-300 flex-col z-50 absolute bg-light-secondary2-translucent rounded-xl xl:p-4 p-2 text-light-primary text-center flex justify-center items-center`}
+              className={`xl:w-[40vh] xl:h-[33vh] min-h-fit h-40 w-40 hover:scale-105 transition-all cursor-pointer duration-300 flex-col z-50 absolute bg-light-secondary rounded-xl xl:p-4 p-2 text-light-primary text-center flex justify-center items-center`}
               style={{
                 left: `${project.left}%`,
                 top: `${project.top}%`,
@@ -184,7 +184,7 @@ export default function ArchivePage() {
                 bottom: `${project.bottom}%`,
               }}
             >
-              <picture className="bg-[#dddddd] rounded-xl h-full flex justify-center items-center xl:p-10 p-4">
+              <picture className="bg-[#dddddd] overflow-hidden rounded-xl h-full flex justify-center items-center xl:p-10 p-4">
                 <img
                   src={project.images[0]}
                   className="object-cover pointer-events-none"
