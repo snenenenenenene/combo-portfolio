@@ -38,7 +38,9 @@ export default function Preloader() {
       }`}
     >
       <span className="absolute bottom-0 translate-y-full pb-20 w-full justify-center items-center flex">
-        <h1 className="intro-text text-9xl font-bold uppercase">Senne Bels</h1>
+        <h1 className="intro-text xl:text-9xl text-4xl font-bold uppercase">
+          Senne Bels
+        </h1>
       </span>
     </div>
   );

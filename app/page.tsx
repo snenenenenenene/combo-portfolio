@@ -1,174 +1,59 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { OrbitControls, SoftShadows } from "@react-three/drei";
-import { Suspense, useContext, useState } from "react";
+import { Suspense, useContext } from "react";
 import "react-indiana-drag-scroll/dist/style.css";
 import { Canvas } from "react-three-fiber";
 import AnchorObserver from "./components/AnchorObserver";
+import ArchivePage from "./components/ArchivePage";
 import CornerButton from "./components/CornerButton";
 import { Marquee } from "./components/Marquee";
 import { Model } from "./components/Model";
 import { NavbarContext } from "./components/Navbar";
-import Preloader from "./components/Preloader";
-import { webProjects } from "./data/webProjects";
 
 export default function Home() {
-  // set starting position of the canvas to center in a way that also works on mobile
-  const [translateX, setTranslateX] = useState<number>(
-    typeof window !== "undefined" ? (window?.innerWidth / 2) * -1 : 0
-  );
-  const [translateY, setTranslateY] = useState<number>(
-    typeof window !== "undefined" ? (window?.innerHeight / 2) * -1 : 0
-  );
-  const [isDragging, setIsDragging] = useState(false);
   const { setBgColour, setNavbarMode } = useContext(NavbarContext);
 
-  var previousTouch: any;
-
-  const handleMouseMove = (e: any) => {
-    if (!isDragging) return;
-
-    setTranslateX(translateX + e.movementX * 1.3);
-    setTranslateY(translateY + e.movementY * 1.3);
-
-    // make it move with some inertia
-
-    // stop it from going past the edges
-    if (translateX > 0) {
-      setTranslateX(0);
-    }
-    if (translateY > 0) {
-      setTranslateY(0);
-    }
-    if (translateX < window?.innerWidth * -1) {
-      setTranslateX(window?.innerWidth * -1);
-    }
-    if (translateY < window?.innerHeight * -1) {
-      setTranslateY(window?.innerHeight * -1);
-    }
-  };
-
   return (
-    <main className="">
-      <AnchorObserver
-        onHitTop={() => {
-          setBgColour("bg-light-secondary2");
-          setNavbarMode("normal");
-        }}
-      >
-        <a href="#aboutme" />
-      </AnchorObserver>
+    <main>
+      <ArchivePage />
       <div
-        className="w-screen relative h-screen flex overflow-hidden"
-        style={{ fontSize: "1vw" }}
-        id="archive"
-      >
-        <Preloader />
-        <div
-          onMouseMove={handleMouseMove}
-          onMouseDown={() => {
-            setIsDragging(true);
-          }}
-          onMouseUp={() => {
-            setIsDragging(false);
-          }}
-          onTouchStart={() => {
-            setIsDragging(true);
-          }}
-          onTouchEnd={() => {
-            setIsDragging(false);
-          }}
-          onMouseLeave={() => {
-            setIsDragging(false);
-          }}
-          onTouchMove={(e) => {
-            if (!isDragging) return;
-            const touch = e.touches[0];
-            if (previousTouch) {
-              setTranslateX(translateX + touch.clientX - previousTouch.clientX);
-              setTranslateY(translateY + touch.clientY - previousTouch.clientY);
-            }
-
-            // stop it from going past the edges
-            if (translateX > 0) {
-              setTranslateX(0);
-            }
-            if (translateY > 0) {
-              setTranslateY(0);
-            }
-            if (translateX < window?.innerWidth * -1) {
-              setTranslateX(window?.innerWidth * -1);
-            }
-            if (translateY < window?.innerHeight * -1) {
-              setTranslateY(window?.innerHeight * -1);
-            }
-
-            previousTouch = touch;
-          }}
-          className="cursor-grabbing bg-light-secondary transition-all duration-200 -z-10 w-[300em] h-[300em] xl:w-[200em] xl:h-[200em] absolute overflow-hidden"
-          style={{
-            transform: `translateX(${translateX}px) translateY(${translateY}px)`,
-            zIndex: 1,
-          }}
-          // {/* style={{ perspective: "1000px", backfaceVisibility: "hidden" }} */}
-          id="desktop"
-        >
-          {webProjects.map((project) => (
-            <a
-              href={project.demo ? project.demo : project.link}
-              key={project.id}
-              className={`xl:w-96 xl:h-96 h-40 w-40 hover:scale-105 transition-all cursor-pointer duration-300 flex-col z-50 absolute bg-light-secondary2 rounded-xl xl:p-4 p-2 text-light-primary text-center flex justify-center items-center`}
-              style={{
-                left: `${project.left}%`,
-                top: `${project.top}%`,
-                right: `${project.right}%`,
-                bottom: `${project.bottom}%`,
-              }}
-            >
-              <picture className="bg-[#dddddd] rounded-xl h-full flex justify-center items-center xl:p-10 p-4">
-                <img
-                  src={project.images[0]}
-                  className="object-cover"
-                  alt={project.name}
-                />
-              </picture>
-              <span className="flex justify-start w-full text-lg xl:py-4 py-2 items-center">
-                <p>{project.name}</p>
-              </span>
-            </a>
-          ))}
-        </div>
-        <span className="z-10 bg-gradient-to-t from-light-secondary to-transparent xl:pt-20 text-light-primary absolute pointer-events-none xl:px-10 px-4 bottom-0 left-0 ">
-          <h2 className="w-full font-display xl:pb-10 pb-4 uppercase text-center">
-            Web & Game Developer/Designer
-          </h2>
-          <span className="flex justify-between xl:pb-10 pb-4 xl:text-inherit text-xs text-center xl:text-start font-display uppercase">
-            <p>Based in Belgium</p>
-            <p>Scroll down for more</p>
-            <p>Open to Remote</p>
-          </span>
-        </span>
-        <AnchorObserver
-          onHitTop={() => {
-            setBgColour("bg-light-secondary2");
-          }}
-        >
-          <a href="#aboutme" />
-        </AnchorObserver>
-      </div>
-      <div
-        className="xl:h-screen h-fit xl:px-20 px-4 py-10 xl:py-40 font-display w-full relative z-10 bg-light-primary text-light-primary"
+        className="about xl:h-screen h-fit xl:px-20 bg-light-primary px-4 py-10 xl:py-40 font-display w-full relative z-10 text-light-secondary"
         id="about"
       >
-        <AnchorObserver
-          onHitTop={() => {
-            setBgColour("bg-light-secondary");
-            setNavbarMode("flush");
-          }}
-        >
-          <a href="#aboutme" />
-        </AnchorObserver>
-        <span className="text-light-secondary xl:gap-y-8 gap-y-4 flex flex-wrap font-bold xl:text-9xl text-4xl whitespace-pre-wrap">
+        {/* <section id="blinds" className="fixed inset-0">
+          <div id="blind1" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind2" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind3" className=" h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind4" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind5" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind6" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind7" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind8" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind9" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+          <div id="blind10" className="h-[10%] flex items-end">
+            <section className="blind bg-light-primary w-full h-full"></section>
+          </div>
+        </section> */}
+        <span className="xl:gap-y-8 gap-y-4 flex flex-wrap font-bold xl:text-9xl text-4xl whitespace-pre-wrap">
           <p>SENNE BELS</p>
           <div className="xl:text-xl text-lg flex border-2 text-light-tertiary font-display mx-3 border-light-tertiary rounded-full h-10 justify-center items-center px-4">
             Who I Am
@@ -197,6 +82,7 @@ export default function Home() {
         </span>
         <AnchorObserver
           onHitTop={() => {
+            setNavbarMode("flush");
             setBgColour("bg-light-secondary");
           }}
         >

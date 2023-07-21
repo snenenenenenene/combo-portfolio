@@ -19,14 +19,10 @@ const AnchorObserver = ({
 
     const observer = new IntersectionObserver(([entry]) => {
       // Call the onHitTop function when the element hits the top of the viewport
-
       if (entry.intersectionRatio === 1) {
         onHitTop();
+        observer.disconnect(); // Disconnect the observer to ensure it's called only once
       }
-
-      // if (entry.isIntersecting) {
-      // onHitTop();
-      // }
     }, options);
 
     if (targetRef.current) {
