@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { OrbitControls, SoftShadows } from "@react-three/drei";
+import GSAP from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { Suspense, useContext } from "react";
 import "react-indiana-drag-scroll/dist/style.css";
 import { Canvas } from "react-three-fiber";
@@ -10,14 +12,37 @@ import CornerButton from "./components/CornerButton";
 import { Marquee } from "./components/Marquee";
 import { Model } from "./components/Model";
 import { NavbarContext } from "./components/Navbar";
-
 export default function Home() {
   const { setBgColour, setNavbarMode } = useContext(NavbarContext);
+  GSAP.registerPlugin(ScrollTrigger);
+
+  const aboutMeScroll = GSAP.timeline({
+    scrollTrigger: {
+      trigger: "#aboutme",
+      start: "top",
+      end: "bottom",
+      scrub: 0.6,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  aboutMeScroll.fromTo(
+    ".sentences",
+    {
+      x: "-100%",
+      duration: 1,
+    },
+    {
+      x: "0%",
+      duration: 2,
+    }
+  );
 
   return (
     <main>
       <ArchivePage />
       <div
+        corner-cut="all"
         className="about xl:h-screen h-fit xl:px-20 bg-light-primary px-4 py-10 xl:py-40 font-display w-full relative z-10 text-light-secondary"
         id="about"
       >
@@ -53,7 +78,7 @@ export default function Home() {
             <section className="blind bg-light-primary w-full h-full"></section>
           </div>
         </section> */}
-        <span className="xl:gap-y-8 gap-y-4 flex flex-wrap font-bold xl:text-9xl text-4xl whitespace-pre-wrap">
+        <span className="sentences xl:gap-y-8 gap-y-4 flex flex-wrap font-bold xl:text-9xl text-4xl whitespace-pre-wrap">
           <p>SENNE BELS</p>
           <div className="xl:text-xl text-lg flex border-2 text-light-tertiary font-display mx-3 border-light-tertiary rounded-full h-10 justify-center items-center px-4">
             Who I Am
@@ -80,14 +105,14 @@ export default function Home() {
             <p>AND THREE</p>
           </span>
         </span>
-        <AnchorObserver
+        {/* <AnchorObserver
           onHitTop={() => {
             setNavbarMode("flush");
             setBgColour("bg-light-secondary");
           }}
         >
-          <a href="#aboutme" />
-        </AnchorObserver>
+          <a href="#" />
+        </AnchorObserver> */}
       </div>
 
       <div

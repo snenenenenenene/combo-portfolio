@@ -25,8 +25,8 @@ export const webProjects: any[] = [
       react: true,
       typescript: true,
     },
-    bottom: 10,
-    left: 40,
+    top: 20,
+    left: 25,
     description:
       "Musicians is the brainchild of Jstack and me. This project was intended to create an intuitive and pragmatic way for young artists to sell demo's, tracks, and samples to potential investors. This is possible through the online interface, as well as through a scannable QR-code. As I was working on the project as a frontend developer most functionalities are wired through a mock API instead of an actual backend.",
     images: ["/assets/web/Musicians.png"],
@@ -39,7 +39,7 @@ export const webProjects: any[] = [
       ember: true,
     },
     top: 10,
-    right: 50,
+    right: 40,
     description:
       "A date range picker for the Au Design System. This project is still in development.",
     images: ["/assets/web/Datepicker.png"],
@@ -59,8 +59,8 @@ export const webProjects: any[] = [
       docker: true,
       sparql: true,
     },
-    right: 40,
-    top: 50,
+    left: 5,
+    top: 39,
     description:
       "However, in February I was offered the opportunity to work on a new project called Bobcat. This project intends to inform users about the decisions their municipality took in Flanders, which is meant to inform voters for the upcoming Flemish election. It's a really important project that I'm excited to be a part of. I've learned so much through my experiences working on Lynx and now Bobcat. It's been amazing to work on projects that have real-world impact and help improve people's lives. I'm excited to see where this journey takes me next and how I can continue to use my skills to make a difference.",
 
@@ -77,7 +77,7 @@ export const webProjects: any[] = [
       pocketbase: true,
       nextjs: true,
     },
-    bottom: 30,
+    top: 5,
     left: 15,
     description:
       "A tool for creating and managing DnD characters. This project is still in development.",
@@ -146,8 +146,8 @@ export const webProjects: any[] = [
       machineLearning: true,
       react: true,
     },
-    bottom: 20,
-    right: 30,
+    bottom: 60,
+    right: 46,
     description:
       "A tool for creating and managing DnD characters. This project is still in development.",
     images: ["/assets/web/pets.png"],

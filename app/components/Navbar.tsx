@@ -50,6 +50,7 @@ export default function Navbar() {
   return (
     <div className="flex w-full h-16 fixed justify-center z-20">
       <nav
+        id="navbar"
         border-cut="nav-bar"
         className={` p-[2px] h-16 z-50 flex overflow-hidden justify-between px-10 transition-all duration-200 ${
           clickedMenu

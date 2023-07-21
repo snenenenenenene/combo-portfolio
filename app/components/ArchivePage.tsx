@@ -22,6 +22,22 @@ export default function ArchivePage() {
     });
 
     archiveScroll.fromTo(
+      "#navbar",
+      {
+        // set bg to white
+        backgroundColor: "rgba(255,255,255, 0.8)",
+        color: "black",
+        delay: 5,
+        duration: 0.5,
+      },
+      {
+        backgroundColor: " rgba(0,0,0)",
+        color: "white",
+        duration: 0.5,
+      }
+    );
+
+    archiveScroll.fromTo(
       "#archive",
       {
         y: "0%",
@@ -32,6 +48,7 @@ export default function ArchivePage() {
         duration: 2,
       }
     );
+
     // archiveScroll.fromTo(
     //   "#about",
     //   {
@@ -138,9 +155,17 @@ export default function ArchivePage() {
 
             previousTouch = touch;
           }}
-          className="cursor-grabbing bg-light-secondary transition-all duration-100 -z-10 w-[300em] h-[300em] xl:w-[300em] xl:h-[200em] absolute overflow-hidden"
+          className="cursor-grabbing select-none -z-10 w-[300em] h-[300em] xl:w-[300em] xl:h-[200em] absolute overflow-hidden"
           style={{
-            transform: `translateX(${translateX}px) translateY(${translateY}px)`,
+            transform: `translate(${translateX}px, ${translateY}px)`,
+            // backgroundImage: `url(/assets/logo.svg)`,
+            // backgroundImage: `url(/dots2.avif)`,
+            // backgroundSize: "200vh, 200vh",
+            filter: "invert(1)",
+            backgroundAttachment: "fixed",
+
+            backgroundPosition: "center",
+            backgroundRepeat: "repeat",
             zIndex: 1,
           }}
           // {/* style={{ perspective: "1000px", backfaceVisibility: "hidden" }} */}
@@ -148,9 +173,10 @@ export default function ArchivePage() {
         >
           {webProjects.map((project) => (
             <a
-              href={project.demo ? project.demo : project.link}
+              href={!isDragging && project.demo ? project.demo : project.link}
               key={project.id}
-              className={`xl:w-96 xl:h-96 h-40 w-40 hover:scale-105 transition-all cursor-pointer duration-300 flex-col z-50 absolute bg-light-secondary2 rounded-xl xl:p-4 p-2 text-light-primary text-center flex justify-center items-center`}
+              draggable={false}
+              className={`xl:w-[40vh] filter invert xl:h-[30vh] h-40 w-40 hover:scale-105 transition-all cursor-pointer duration-300 flex-col z-50 absolute bg-light-secondary2-translucent rounded-xl xl:p-4 p-2 text-light-primary text-center flex justify-center items-center`}
               style={{
                 left: `${project.left}%`,
                 top: `${project.top}%`,
@@ -161,7 +187,8 @@ export default function ArchivePage() {
               <picture className="bg-[#dddddd] rounded-xl h-full flex justify-center items-center xl:p-10 p-4">
                 <img
                   src={project.images[0]}
-                  className="object-cover"
+                  className="object-cover pointer-events-none"
+                  draggable={false}
                   alt={project.name}
                 />
               </picture>
@@ -175,10 +202,13 @@ export default function ArchivePage() {
           <h2 className="w-full font-display xl:pb-10 pb-4 uppercase text-center">
             Web & Game Developer/Designer
           </h2>
-          <span className="flex justify-between xl:pb-10 pb-4 xl:text-inherit text-xs text-center xl:text-start font-display uppercase">
+          <span className="flex justify-between xl:pb-10 pb-4 xl:text-xl text-xs text-center xl:text-start font-display uppercase">
             <p>Based in Belgium</p>
             <p>Scroll down for more</p>
-            <p>Open to Remote</p>
+            <section className="flex gap-x-2 items-center justify-end">
+              <div className="w-2 h-2  animate-ping bg-light-tertiary rounded-full" />
+              <p className="text-light-tertiary">DRAG TO EXPLORE</p>
+            </section>
           </span>
         </span>
       </div>
