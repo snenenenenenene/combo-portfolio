@@ -177,6 +177,7 @@ export default function ArchivePage() {
             <a
               href={!isDragging && project.demo ? project.demo : project.link}
               key={project.id}
+              target="_blank"
               draggable={false}
               className={`xl:w-[40vh] xl:h-[33vh] min-h-fit h-40 w-40 hover:scale-105 transition-all cursor-pointer duration-300 flex-col z-50 absolute bg-light-secondary rounded-xl xl:p-4 p-2 text-light-primary text-center flex justify-center items-center`}
               style={{
