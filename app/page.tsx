@@ -136,7 +136,8 @@ export default function Home() {
         <div className="flex w-full h-full">
           <section className="w-full">
             <p className="text-light-primary px-20 text-justify text-2xl font-display">
-              I'm <b className="text-light-tertiary font-bold">Senne Bels</b>, a
+              I&apos;m{" "}
+              <b className="text-light-tertiary font-bold">Senne Bels</b>, a
               22-year old IT-graduate - and human.
               <br />
               <br />
@@ -147,8 +148,8 @@ export default function Home() {
               Creative Technologies.
               <br />
               <br />
-              It's always been my main ambition & dream to move abroad! -- and
-              I'm hoping to find a job that will allow me to do so.
+              It&apos;s always been my main ambition & dream to move abroad! --
+              and I&apos;m hoping to find a job that will allow me to do so.
               <br />
               <br />
               I&apos;m specialised as a web developer, but I majored in Big Data
