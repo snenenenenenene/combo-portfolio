@@ -13,30 +13,32 @@ import { Marquee } from "./components/Marquee";
 import { Model } from "./components/Model";
 import { NavbarContext } from "./components/Navbar";
 export default function Home() {
-  const { setBgColour, setNavbarMode } = useContext(NavbarContext);
+  const { setBgColour } = useContext(NavbarContext);
   GSAP.registerPlugin(ScrollTrigger);
 
-  const aboutMeScroll = GSAP.timeline({
-    scrollTrigger: {
-      trigger: "#aboutme",
-      start: "top",
-      end: "bottom",
-      scrub: 0.6,
-      invalidateOnRefresh: true,
-    },
-  });
+  if (typeof window !== "undefined") {
+    const aboutMeScroll = GSAP.timeline({
+      scrollTrigger: {
+        trigger: "#aboutme",
+        start: "top",
+        end: "bottom",
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+      },
+    });
 
-  aboutMeScroll.fromTo(
-    ".sentences",
-    {
-      x: "-100%",
-      duration: 1,
-    },
-    {
-      x: "0%",
-      duration: 2,
-    }
-  );
+    aboutMeScroll.fromTo(
+      ".sentences",
+      {
+        x: "-100%",
+        duration: 1,
+      },
+      {
+        x: "0%",
+        duration: 2,
+      }
+    );
+  }
 
   return (
     <main>
