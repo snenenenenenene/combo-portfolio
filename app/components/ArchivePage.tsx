@@ -40,10 +40,12 @@ export default function ArchivePage() {
     archiveScroll.fromTo(
       "#archive",
       {
+        opacity: "100%",
         y: "0%",
         duration: 1,
       },
       {
+        opacity: "0%",
         y: "100%",
         duration: 2,
       }

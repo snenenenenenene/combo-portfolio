@@ -6,6 +6,10 @@
   width: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: "PPRader Regular";
   src: url("/assets/fonts/PPRader-Regular.woff2");
