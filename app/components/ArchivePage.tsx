@@ -1,71 +1,66 @@
 "use client";
 
 import GSAP from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useContext, useEffect, useState } from "react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useContext, useState } from "react";
 import { webProjects } from "../data/webProjects";
 import AnchorObserver from "./AnchorObserver";
 import { NavbarContext } from "./Navbar";
 import Preloader from "./Preloader";
+
 export default function ArchivePage() {
   GSAP.registerPlugin(ScrollTrigger);
 
-  const scrollIntoArchive = () => {
-    const archiveScroll = GSAP.timeline({
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top",
-        end: "bottom",
-        scrub: 0.6,
-        invalidateOnRefresh: true,
-      },
-    });
+  // if (typeof window !== "undefined") {
+  //   const archiveScroll = GSAP.timeline({
+  //     scrollTrigger: {
+  //       trigger: "#archive",
+  //       start: "top",
+  //       end: "bottom",
+  //       scrub: 0.6,
+  //       invalidateOnRefresh: false,
+  //     },
+  //   });
 
-    archiveScroll.fromTo(
-      "#navbar",
-      {
-        // set bg to white
-        backgroundColor: "rgba(255,255,255, 0.8)",
-        color: "black",
-        delay: 5,
-        duration: 0.5,
-      },
-      {
-        backgroundColor: " rgba(0,0,0)",
-        color: "white",
-        duration: 0.5,
-      }
-    );
+  //   archiveScroll
+  //     .fromTo(
+  //       "#navbar",
+  //       {
+  //         // set bg to white
+  //         backgroundColor: "rgba(0,0,0, 1)",
+  //         color: "black",
+  //         delay: 5,
+  //         duration: 0.5,
+  //         margin: 0,
+  //         top: 0,
+  //       },
+  //       {
+  //         backgroundColor: " rgba(0,0,0)",
+  //         color: "white",
+  //         duration: 0.5,
+  //       }
+  //     )
+  //     .then(() => {
+  //       console.log("AYY");
+  //     });
 
-    archiveScroll.fromTo(
-      "#archive",
-      {
-        opacity: "100%",
-        y: "0%",
-        duration: 1,
-      },
-      {
-        opacity: "0%",
-        y: "100%",
-        duration: 2,
-      }
-    );
-
-    // archiveScroll.fromTo(
-    //   "#about",
-    //   {
-    //     opacity: "100%",
-    //   },
-    //   {
-    //     opacity: "0%",
-    //     duration: 2,
-    //   }
-    // );
-  };
-
-  useEffect(() => {
-    scrollIntoArchive();
-  }, []);
+  //   archiveScroll.fromTo(
+  //     "#archive",
+  //     {
+  //       opacity: "100%",
+  //       y: "0%",
+  //       duration: 1,
+  //     },
+  //     {
+  //       opacity: "0%",
+  //       y: "100%",
+  //       duration: 2,
+  //       onComplete: () => {
+  //         console.log("AYY");
+  //       },
+  //     }
+  //   );
+  // }
 
   var previousTouch: any;
   const { setBgColour, setNavbarMode } = useContext(NavbarContext);
@@ -103,14 +98,14 @@ export default function ArchivePage() {
     <>
       <AnchorObserver
         onHitTop={() => {
-          setBgColour("bg-light-secondary2");
+          // setBgColour("bg-light-secondary2");
           setNavbarMode("normal");
         }}
       >
         <a href="#archive" />
       </AnchorObserver>
       <div
-        className={`w-screen h-screen flex overflow-hidden`}
+        className={`w-screen z-[100] h-screen relative flex-col flex overflow-hidden`}
         style={{ fontSize: "1vw" }}
         id="archive"
       >

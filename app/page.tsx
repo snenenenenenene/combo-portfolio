@@ -11,6 +11,7 @@ import ArchivePage from "./components/ArchivePage";
 import ContactPage from "./components/ContactPage";
 import { Model } from "./components/Model";
 import { NavbarContext } from "./components/Navbar";
+
 export default function Home() {
   const { setBgColour } = useContext(NavbarContext);
   GSAP.registerPlugin(ScrollTrigger);
