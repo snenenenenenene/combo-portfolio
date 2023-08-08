@@ -29,7 +29,7 @@ export default function ContactPage() {
   // }
   return (
     <div
-      className="h-full min-h-screen relative overflow-hidden pt-20 bg-light-tertiary flex flex-col -pt-10 pb-10 2xl:pb-0 w-full"
+      className="h-full min-h-screen relative overflow-hidden pt-20 bg-light-tertiary flex flex-col -pt-10 z-10 pb-10 2xl:pb-0 w-full"
       id="contact"
     >
       <a href="#contact" />

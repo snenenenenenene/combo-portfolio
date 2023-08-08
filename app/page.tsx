@@ -30,11 +30,11 @@ export default function Home() {
     aboutMeScroll.fromTo(
       ".sentences",
       {
-        x: "0%",
+        x: "-100%",
         duration: 1,
       },
       {
-        x: "-100%",
+        x: "0%",
         duration: 2,
       }
     );
@@ -45,7 +45,7 @@ export default function Home() {
       <ArchivePage />
       <div
         corner-cut="all"
-        className="about xl:h-screen h-fit xl:px-20 bg-light-primary px-4 py-10 xl:py-40 font-display w-full relative z-10 text-light-secondary"
+        className="about xl:h-screen h-fit xl:px-20 bg-light-primary px-4 py-10 xl:py-10 font-display w-full relative z-10 text-light-secondary"
       >
         {/* <section id="blinds" className="fixed inset-0">
           <div id="blind1" className="h-[10%] flex items-end">
@@ -79,7 +79,10 @@ export default function Home() {
             <section className="blind bg-light-primary w-full h-full"></section>
           </div>
         </section> */}
-        <section id="about" className="overflow-hidden">
+        <section
+          id="about"
+          className="overflow-hidden flex flex-col h-full w-full"
+        >
           <span className="sentences xl:gap-y-8 gap-y-4 flex flex-wrap font-bold 2xl:text-[11vh] xl:text-9xl text-4xl whitespace-pre-wrap">
             <p>SENNE BELS</p>
             <div className="xl:text-xl text-lg flex border-2 text-light-tertiary font-display mx-3 border-light-tertiary rounded-full h-10 justify-center items-center px-4">

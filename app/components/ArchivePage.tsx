@@ -95,7 +95,7 @@ export default function ArchivePage() {
   };
 
   return (
-    <>
+    <div className="w-screen h-screen flex">
       <AnchorObserver
         onHitTop={() => {
           // setBgColour("bg-light-secondary2");
@@ -105,7 +105,7 @@ export default function ArchivePage() {
         <a href="#archive" />
       </AnchorObserver>
       <div
-        className={`w-screen z-[100] h-screen relative flex-col flex overflow-hidden`}
+        className={`w-screen h-screen flex-col flex overflow-hidden`}
         style={{ fontSize: "1vw" }}
         id="archive"
       >
@@ -152,7 +152,7 @@ export default function ArchivePage() {
 
             previousTouch = touch;
           }}
-          className="cursor-grabbing bg-light-secondary2 select-none -z-10 w-[300em] h-[300em] xl:w-[300em] xl:h-[200em] absolute overflow-hidden"
+          className="cursor-grabbing bg-light-secondary2 absolute select-none -z-10 w-[300em] h-[300em] xl:w-[300em] xl:h-[200em] overflow-hidden"
           style={{
             transform: `translate(${translateX}px, ${translateY}px)`,
             // backgroundImage: `url(/assets/logo.svg)`,
@@ -210,6 +210,6 @@ export default function ArchivePage() {
           </span>
         </span>
       </div>
-    </>
+    </div>
   );
 }

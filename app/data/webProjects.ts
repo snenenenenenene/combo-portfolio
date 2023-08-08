@@ -118,8 +118,8 @@ export const webProjects: any[] = [
     name: "Waddist",
     demo: "https://apps.apple.com/au/app/waddist/id1548427323",
     link: "https://github.com/snenenenenenene/waddist",
-    top: 40,
-    left: 30,
+    top: 35,
+    left: 33,
     technologies: {
       react: true,
       typescript: true,
@@ -151,5 +151,19 @@ export const webProjects: any[] = [
     description:
       "A tool for creating and managing DnD characters. This project is still in development.",
     images: ["/assets/web/pets.png"],
+  },
+  {
+    id: 10,
+    name: "React Minecraft",
+    link: "minecraft-react-ashy.vercel.app",
+    technologies: {
+      react: true,
+      typescript: true,
+      three: true,
+    },
+    top: 24,
+    left: 36,
+    description: "Minecraft in React. This project is still in development.",
+    images: ["/assets/web/react-minecraft.png"],
   },
 ];
