@@ -29,18 +29,18 @@ export default function Home() {
     aboutMeScroll.fromTo(
       ".sentences",
       {
-        x: "-100%",
+        x: "0%",
         duration: 1,
       },
       {
-        x: "0%",
+        x: "-100%",
         duration: 2,
       }
     );
   }
 
   return (
-    <main>
+    <main className="flex flex-col w-full h-full">
       <ArchivePage />
       <div
         corner-cut="all"
@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </section> */}
         <section id="about" className="overflow-hidden">
-          <span className="sentences xl:gap-y-8 gap-y-4 flex flex-wrap font-bold xl:text-9xl text-4xl whitespace-pre-wrap">
+          <span className="sentences xl:gap-y-8 gap-y-4 flex flex-wrap font-bold 2xl:text-[11vh] xl:text-9xl text-4xl whitespace-pre-wrap">
             <p>SENNE BELS</p>
             <div className="xl:text-xl text-lg flex border-2 text-light-tertiary font-display mx-3 border-light-tertiary rounded-full h-10 justify-center items-center px-4">
               Who I Am
@@ -92,7 +92,7 @@ export default function Home() {
                 <p className="text-light-tertiary">〔</p>SPECIALISED
                 <p className="text-light-tertiary">〕</p>
               </span>
-              <p className="xltext-2xl text-xl xl:px-8 xl:py-0 py-4 px-4">
+              <p className="2xl:text-6xl xl:text-2xl text-xl xl:px-8 xl:py-0 py-4 px-4">
                 Based in Antwerp, Belgium I&apos;m currently looking for a job
                 at a company that does something good for the world. I&apos;m
                 passionate about sustainability, and environmentallism.
@@ -118,7 +118,7 @@ export default function Home() {
       </div>
 
       <div
-        className="h-screen xl:p-20 p-4 bg-light-secondary w-full relative z-10"
+        className="flex flex-col xl:p-20 p-4 bg-light-secondary w-full relative z-10"
         corner-cut="all"
         id="3DShowcase"
       >
@@ -129,14 +129,19 @@ export default function Home() {
         >
           <a href="#3D" />
         </AnchorObserver>
-        <span className="text-light-primary justify-center gap-x-4 xl:text-8xl text-4xl xl:text-start flex pb-10 text-center xl:mb-0 mb-8 font-bold">
-          YOUR NEW <p className="text-light-tertiary">〔</p>DEVELOPMENT{" "}
-          <p className="text-light-tertiary">〕</p>PARTNER
+        <span className="text-light-primary md:flex-row flex-col justify-center gap-x-4 xl:text-5xl md:text-4xl text-3xl flew-wrap xl:text-start flex md:pb-10 xl:mb-0 mb-8 font-bold">
+          <p className="flex flex-row">YOUR NEW</p>
+          <span className="flex">
+            <p className="text-light-tertiary">〔</p>
+            <p>DEVELOPMENT</p>
+            <p className="text-light-tertiary">〕</p>
+          </span>
+          <p>PARTNER</p>
         </span>
-        <div className="flex w-full h-full">
-          <section className="w-full">
-            <p className="text-light-primary px-20 text-justify text-2xl font-display">
-              I&apos;m{" "}
+        <div className="flex md:flex-row flex-col w-full h-full">
+          <section className="w-full flex h-full">
+            <p className="text-light-primary h-full md:px-20 px-1 text-justify text-2xl font-display">
+              I&apos;m&nbsp;
               <b className="text-light-tertiary font-bold">Senne Bels</b>, a
               22-year old IT-graduate - and human.
               <br />
@@ -178,20 +183,19 @@ export default function Home() {
             }}
             className="w-full lg:pointer-events-auto pointer-events-none h-full flex absolute inset-0 cursor-grab"
           >
-            <SoftShadows samples={100} />
-            <OrbitControls
-              enableZoom={false}
-              minAzimuthAngle={0}
-              maxAzimuthAngle={Math.PI * 1.9999}
-              minPolarAngle={Math.PI * 0.2}
-              maxPolarAngle={Math.PI * 0.5}
-              autoRotate
-              autoRotateSpeed={0.3}
-            />
             <Suspense fallback={null}>
+              <SoftShadows samples={100} />
+              <OrbitControls
+                enableZoom={false}
+                minAzimuthAngle={0}
+                maxAzimuthAngle={Math.PI * 1.9999}
+                minPolarAngle={Math.PI * 0.2}
+                maxPolarAngle={Math.PI * 0.5}
+                autoRotate
+                autoRotateSpeed={0.3}
+              />
               <Model />
             </Suspense>
-            {/* add a big rectange underneath the object */}
           </Canvas>
         </div>
         <AnchorObserver

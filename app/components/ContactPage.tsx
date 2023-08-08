@@ -29,7 +29,7 @@ export default function ContactPage() {
   // }
   return (
     <div
-      className="h-[90vh] relative overflow-hidden pt-20 bg-light-tertiary flex flex-col -pt-10 pb-10 w-full"
+      className="h-full min-h-screen relative overflow-hidden pt-20 bg-light-tertiary flex flex-col -pt-10 pb-10 2xl:pb-0 w-full"
       id="contact"
     >
       <a href="#contact" />
@@ -49,10 +49,14 @@ export default function ContactPage() {
           "sennebels@gmail.com",
         ]}
       />
-      <p className="absolute left-1/2 top-1/2 flex flex-wrap -translate-x-1/2 -translate-y-1/2 xl:text-9xl text-4xl text-light-primary xl:w-[58rem] justify-center items-center font-bold text-center">
-        WE&apos;D MAKE A GREAT TEAM <p className="text-light-secondary">〔</p>
-        TOGETHER<p className="text-light-secondary">〕</p>
-      </p>
+      <span className="absolute left-1/2 top-1/2 flex flex-wrap -translate-x-1/2 -translate-y-1/2 xl:text-9xl text-4xl text-light-primary xl:w-[58rem] justify-center items-center font-bold text-center">
+        WE&apos;D MAKE A GREAT TEAM
+        <span className="flex">
+          <p className="text-light-secondary">〔</p>
+          <p>TOGETHER</p>
+          <p className="text-light-secondary">〕</p>
+        </span>
+      </span>
       <section
         id="contact-btm"
         className="contact-btm mt-auto font-display text-light-primary xl:text-2xl text-sm xl:p-10 p-4 w-full justify-between flex"

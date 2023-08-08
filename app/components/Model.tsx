@@ -1,7 +1,7 @@
 import { useGLTF, useKTX2 } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { Bloom } from "@react-three/postprocessing";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Color,
   DoubleSide,
@@ -167,6 +167,14 @@ export const Model = (props: any) => {
     return vid;
   });
 
+  // error handling
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      console.log("error");
+    }
+  }, [error]);
   return (
     <group
       position={[-1.5, -2, 0]}
